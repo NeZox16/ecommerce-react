@@ -1,0 +1,33 @@
+.skeletonCard
+    height: 370px
+    width: 472px
+    @apply bg-white shadow-md
+.skeletonContent
+    @apply flex flex-col gap-2 p-3
+.skeletonContentCategory
+    @apply flex flex-col
+.skeletonCard
+    .skeletonImg, .skeletonTitle, .skeletonPrice, .skeletonDesc, .skeletonCategory
+        background: #eee
+        background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%)
+        background-size: 200% 100%
+        animation: 1.5s shine linear infinite
+        border-radius: 5px
+    .skeletonImg
+        height: 160px
+        border-radius: 0
+    .skeletonTitle
+        height: 28px
+        width: 200px
+    .skeletonPrice
+        height: 24px
+        width: 160px
+    .skeletonDesc
+        height: 48px
+    .skeletonCategory
+        height: 20px
+        width: 100px
+@keyframes shine 
+    to 
+        background-position-x: -200%
+    

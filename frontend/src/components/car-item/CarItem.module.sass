@@ -1,0 +1,18 @@
+.carItem
+    @apply border h-auto overflow-hidden overflow-y-scroll shadow-md 
+.carItem::-webkit-scrollbar 
+    @apply w-0
+.carImage
+  @apply object-cover w-full h-40
+.carWrapper
+    @apply flex flex-col gap-2 p-3
+    &Name
+      @apply text-lg text-emerald-500
+    &Price
+      @apply text-base font-semibold
+    &Desc
+      @apply text-base text-gray-600 font-medium break-all
+    &Category
+      @apply flex flex-col
+      &Item
+        @apply text-gray-400 text-sm

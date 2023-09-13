@@ -1,0 +1,11 @@
+.category
+    @apply border rounded-lg p-3 relative w-60 cursor-pointer
+.categoryTitle
+    @apply text-center
+.categoryList
+    @apply  flex flex-col gap-2 absolute w-52 shadow-md top-14 left-0 bg-gray-50 invisible opacity-0 transition-all duration-500
+.category:hover .categoryList
+    @apply visible opacity-100 transition-all duration-500
+.categoryListItem
+    @apply text-zinc-600 text-sm w-full px-3 py-2 font-medium hover:bg-zinc-300 hover:text-white transition-all cursor-pointer duration-500 
+

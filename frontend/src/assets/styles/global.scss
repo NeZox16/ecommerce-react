@@ -1,0 +1,18 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './_fonts.sass';
+* {
+    @apply box-border m-0 p-0;
+}
+body {
+    font-family: 'MontserratRegular', sans-serif;
+    @apply bg-emerald-500 text-base m-0 p-0 h-full;
+}
+.main-container {
+    @apply container m-auto px-8;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'MontserratBold', sans-serif;
+}
+    

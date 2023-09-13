@@ -1,0 +1,24 @@
+.header
+    @apply sticky mb-5 flex items-center bg-white w-auto px-3 py-4 top-0 shadow-md z-10
+    &Logo
+        @apply w-1/5 text-center font-bold text-base
+    &Wrapper 
+        @apply w-1/5 flex items-center justify-end gap-4
+.nav
+    @apply w-3/5
+    &List
+        @apply flex items-center justify-center
+        &Item
+            &Link 
+                @apply cursor-pointer px-3 py-2 font-bold text-base relative transition-all duration-500 block
+                &::after
+                    transform: translateX(-50%)
+                    content: ''
+                    @apply absolute w-0 left-1/2 h-0.5 bottom-0 bg-emerald-500 transition-all duration-500
+                    &:hover
+                        @apply w-full
+            
+.btnLogin
+    @apply py-3 px-4 bg-emerald-500 text-white rounded font-bold border border-transparent transition-all duration-500 hover:bg-white hover:text-emerald-500 hover:border-emerald-500
+.btnReg
+    @apply py-3 px-4 bg-red-700 text-white rounded font-bold border border-transparent transition-all duration-500 hover:bg-white hover:text-red-500 hover:border-red-500
