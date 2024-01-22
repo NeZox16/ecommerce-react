@@ -1,16 +1,16 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
-import styles from "./Login.module.sass";
-import { FormLogin } from "../../components";
-import { useDispatch, useSelector } from "react-redux";
+import styles from "./Register.module.sass";
+import { fetchRegister } from "../../redux/slices/asyncThunk";
 import { selectIsAuth } from "../../redux/slices/authSlice";
-import { fetchLogin } from "../../redux/slices/asyncThunk";
+import { FormRegister } from "../../components";
+import { useDispatch, useSelector } from "react-redux";
 
-function Login() {
+function Register() {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+
   const onSubmit = async (values) => {
-    const data = await dispatch(fetchLogin(values));
+    const data = await dispatch(fetchRegister(values));
 
     if (!data.payload) {
       return alert("Не получилось");
@@ -22,14 +22,14 @@ function Login() {
   if (isAuth) {
     return <Navigate to="/" />;
   }
-  console.log("isAuth", isAuth);
+
   return (
     <>
-      <div className={styles.login}>
-        <FormLogin onSubmit={onSubmit} />
+      <div className={styles.register}>
+        <FormRegister styles={styles} onSubmit={onSubmit} />
       </div>
     </>
   );
 }
 
-export default Login;
+export default Register;

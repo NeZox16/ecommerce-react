@@ -1,5 +1,16 @@
 .carItem
-    @apply border h-auto overflow-hidden overflow-y-scroll shadow-md 
+    @apply border h-auto overflow-hidden overflow-y-scroll shadow-md  relative
+    height: 300px
+.carItem:hover .carHeader
+    @apply transition-all duration-500 opacity-100 visible
+.carHeader
+    @apply absolute flex z-10 opacity-0 transition-all invisible duration-500 items-center w-full justify-between p-4 bg-gray-50 shadow-sm top-0
+.carBtn
+    @apply bg-white rounded-full
+.carBtn:hover .iconAdd
+    @apply fill-emerald-500
+.iconAdd
+  @apply fill-black transition-colors duration-500
 .carItem::-webkit-scrollbar 
     @apply w-0
 .carImage

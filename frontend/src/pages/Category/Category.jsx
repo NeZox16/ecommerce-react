@@ -1,20 +1,17 @@
-import React from 'react'
-import Main from '../../components/layers/Main/Main';
-import styles from '../../components/layers/Main/Main.module.sass'
-import Section from '../../components/ui/section/Section';
-import Shop from '../../components/Shop'
-import Layout from '../../components/layers/Layout/Layout';
+import React from "react";
+import styles from "../../components/layers/Main/Main.module.sass";
+import { Layout, Section, Shop } from "../../components";
 
 function Category() {
   return (
     <>
       <Layout>
-            <Section>
-                <Shop/>
-            </Section>
+        <Section>
+          <Shop />
+        </Section>
       </Layout>
     </>
-  )
+  );
 }
 
 export default Category;

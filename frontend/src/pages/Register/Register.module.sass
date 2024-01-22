@@ -1,0 +1,26 @@
+.register
+    @apply h-screen w-full flex flex-col items-center justify-center
+.registerForm
+    @apply p-5 rounded-xl flex flex-col bg-navy-blue
+.registerFormWrapper
+    @apply mb-5
+.registerFormTitle
+    @apply text-white text-3xl mb-3
+.registerFormText
+    @apply text-white text-base font-bold
+.inputWrapper
+    @apply flex flex-col space-y-6
+.inputField
+    @apply relative
+.inputRegister
+    @apply w-64 p-3 rounded-xl outline-0 bg-slate-800
+.labelRegister
+    @apply absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-base transition-all duration-300 text-gray-500 rounded-xl 
+.inputRegister:focus ~ .labelRegister, .inputRegister.hasValue ~ .labelRegister
+    @apply top-0 left-3 px-2  text-sm text-pink-700  font-bold bg-navy-blue
+.btnRegister
+    @apply mt-4 bg-navy-blue p-2 border border-indigo-900 rounded-xl text-white text-base font-bold transition-colors duration-500 hover:text-pink-700 hover:bg-slate-800
+.returnToLogin
+    @apply mt-3 text-white flex items-center gap-1
+.returnToLoginLink
+    @apply text-blue-600 transition-colors duration-300 hover:text-pink-700

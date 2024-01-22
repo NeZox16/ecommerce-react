@@ -7,6 +7,9 @@ export default {
     extend: {
       breakpoints: {
 
+      },
+      backgroundColor: {
+        "navy-blue": "rgb(20, 21, 44)"
       }
     },
   },

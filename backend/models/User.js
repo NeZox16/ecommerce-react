@@ -14,7 +14,10 @@ const User = new mongoose.Schema({
         type: String,
         required: true,
     },
-    avatarUrl: String,
+    avatarUrl: {
+        type: String,
+        default: 'https://www.pngitem.com/pimgs/m/24-248235_user-profile-avatar-login-account-fa-user-circle.png'
+    },
     role: {
         isAdmin: {
             type: Boolean,
