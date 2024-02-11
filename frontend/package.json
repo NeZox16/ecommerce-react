@@ -10,6 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-router": "^1.16.0",
+    "@tanstack/router-devtools": "^1.16.0",
+    "@tanstack/router-vite-plugin": "^1.16.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.17",
+    "@types/sass": "^1.45.0",
     "axios": "^1.6.5",
     "esbuild": "^0.19.2",
     "express": "^4.18.2",
@@ -17,13 +23,13 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.46.1",
-    "react-router-dom": "^6.15.0",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@reduxjs/toolkit": "^2.0.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.15",
     "eslint": "^8.45.0",

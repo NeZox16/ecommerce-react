@@ -1,129 +1,115 @@
-import Car from "../models/Car.js"
+import Car from "../models/Car.js";
 
 export const getAll = async (req, res) => {
     try {
-        const cars = await Car.find().populate('user').exec()
+        const cars = await Car.find();
 
-        res.json(cars)
-    } catch(err) {
+        res.json(cars);
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: `Failed to get a post with a car`
-        })
+            message: `Failed to get a post with a car`,
+        });
     }
-}
+};
 
 export const getOne = async (req, res) => {
     try {
         const carId = req.params.id;
-        
-        const doc = await Car.findOneAndUpdate(
-        {
+
+        const doc = await Car.findOneAndUpdate({
             _id: carId,
-        }, 
-        {
-            $inc: { viewsCount: 1}
-        }, 
-        {
-            returnDocument: 'after'
-        },
-        {
-            new: true,
-        })
-        
-        if(!doc) {
+        });
+
+        if (!doc) {
             return res.status(404).json({
-                message: 'A post with a car is not found'
-            })
+                message: "A post with a car is not found",
+            });
         }
 
-        res.json(doc)
-    } catch(err) {
+        res.json(doc);
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: `Failed to get a post with a car`
-        })
+            message: `Failed to get a post with a car`,
+        });
     }
-}
-
+};
 
 export const create = async (req, res) => {
     try {
         const doc = new Car({
-            name: req.body.name,
+            title: req.body.title,
+            liked: req.body.liked,
+            reviewer: req.body.reviewer,
             desc: req.body.desc,
+            properties: req.body.properties,
             price: req.body.price,
-            category: req.body.category,
-            availability: req.body.availability,
-            status: req.body.status,
-            imageUrl: req.body.imageUrl,
-            user: req.userId,
+            sale: req.body.sale,
+            reviews: req.body.reviews,
         });
 
-
         const car = await doc.save();
-
-        res.json(car)
-    } catch(err) {
+        console.log(doc);
+        res.json(doc);
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: `Failed to create a post with a car`
-        })
+            message: `Failed to create a post with a car`,
+        });
     }
 };
-
 
 export const remove = async (req, res) => {
     try {
         const carId = req.params.id;
-        
-        const doc = await Car.findOneAndDelete(
-            {_id: carId} 
-            )
 
-            if(!doc) {
-                return res.status(404).json({
-                    message: 'A post with a car is not found'
-                })
-            }
+        const doc = await Car.findOneAndDelete({ _id: carId });
 
-            res.json({
-                success: true
-            })
+        if (!doc) {
+            return res.status(404).json({
+                message: "A post with a car is not found",
+            });
+        }
 
-    } catch(err) {
+        res.json({
+            success: true,
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: `No access`
-        })
+            message: `No access`,
+        });
     }
-}
+};
 
 export const update = async (req, res) => {
     try {
         const carId = req.params.id;
-        
-        await Car.updateOne({
-            _id: carId
-        }, 
-        {
-            name: req.body.name,
-            desc: req.body.desc,
-            price: req.body.price,
-            category: req.body.category,
-            availability: req.body.availability,
-            status: req.body.status,
-            imageUrl: req.body.imageUrl,
-            user: req.userId,
-        })
+
+        await Car.updateOne(
+            {
+                _id: carId,
+            },
+            {
+                name: req.body.name,
+                desc: req.body.desc,
+                price: req.body.price,
+                category: req.body.category,
+                availability: req.body.availability,
+                status: req.body.status,
+                imageUrl: req.body.imageUrl,
+                user: req.userId,
+            }
+        );
 
         res.json({
             success: true,
-        })
-    } catch(err) {
+        });
+    } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: `Failed to update a post with a car`
-        })
+            message: `Failed to update a post with a car`,
+        });
     }
-}
+};

@@ -1,41 +1,54 @@
 import mongoose from "mongoose";
 
-const Car = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true,
-    },
-    desc: {
-        type:  String,
-    },
-    price: {
-        type: Number,
-        required: true,
-        default: 0,
-    },
-    category: {
-        type: Array,
-        default: [],
-    },
-    availability: Boolean,
-    viewsCount: {
-        type: Number,
-        default: 0,
-    },
-    status: {
-        type: Boolean,
-        default: true
-    },
+const reviewSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        ref: "User",
         required: true,
     },
-    imageUrl: {
-        type: String,
-        required: true,
-    },
+    rating: { type: Number, required: true },
+    comment: { type: String },
+});
 
-}, {timestamps: true,})
+const Car = new mongoose.Schema(
+    {
+        title: {
+            type: String,
+            required: true,
+        },
+        liked: { type: Boolean, default: false, required: true },
+        reviewer: {
+            rating: {
+                required: true,
+                type: Number,
+                default: 0,
+            },
+            numReviews: {
+                required: true,
+                type: Number,
+                default: 0,
+            },
+        },
+        desc: {
+            type: String,
+            required: true,
+        },
+        properties: {
+            type_car: String,
+            capacity: String,
+            steering: String,
+            gasoline: Number,
+        },
+        price: {
+            type: Number,
+            default: 70,
+        },
+        sale: {
+            type: Number,
+        },
+        reviews: [reviewSchema],
+    },
+    { timestamps: true }
+);
 
 export default mongoose.model("Car", Car);
